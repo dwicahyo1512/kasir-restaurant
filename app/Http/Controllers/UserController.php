@@ -31,9 +31,9 @@ class UserController extends Controller
             'Female' => 'Female',
         ];
         //
-        return view('users.create',[
-        'gender' => $gender
-    ]);
+        return view('users.create', [
+            'gender' => $gender
+        ]);
     }
 
     /**
@@ -49,7 +49,7 @@ class UserController extends Controller
             'gender' => $request->gender,
             'password' => Hash::make($request->password)
         ]);
-        Toast::title('User Data Tersimpan')->autoDismiss(3);
+        Toast::title('User Data Tersimpan')->rightTop()->autoDismiss(3);
         // return redirect()->route('user.index');
         return to_route('users.index');
     }
@@ -72,7 +72,7 @@ class UserController extends Controller
             'Female' => 'Female',
         ];
         //
-        return view('users.edit',[
+        return view('users.edit', [
             'user' => $user,
             'gender' => $gender
         ]);
@@ -85,12 +85,12 @@ class UserController extends Controller
     {
         //
         $user->update([
-            'name'=> $request->name,
-            'email'=> $request->email,
+            'name' => $request->name,
+            'email' => $request->email,
             'gender' => $request->gender,
-            'password'=> Hash::make($request->password)
+            'password' => Hash::make($request->password)
         ]);
-        Toast::title('User Data Update')->autoDismiss(3);
+        Toast::title('User Data Update')->rightTop();
 
         return to_route('users.index');
     }
@@ -102,7 +102,7 @@ class UserController extends Controller
     {
         //
         $user->delete();
-        Toast::title('User Data Terhapus')->danger()->autoDismiss(3);
+        Toast::title('User Data Terhapus')->rightTop()->danger()->autoDismiss(3);
         // return redirect()->route('user.index');
         return to_route('users.index');
     }

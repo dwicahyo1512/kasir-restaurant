@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/now', function () {
+    return view('auth.login');
+});
 
 Route::middleware('splade')->group(function () {
     // Registers routes to support the interactive components...
@@ -32,6 +35,13 @@ Route::middleware('splade')->group(function () {
         return view('welcome');
     });
 
+    Route::get('/cart', function () {
+        return view('food');
+    });
+    Route::get('/market', function () {
+        return view('marketplace');
+    });
+
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', function () {
             return view('dashboard');
@@ -42,8 +52,9 @@ Route::middleware('splade')->group(function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::resource('users', App\Http\Controllers\UserController::class);
+        Route::resource('kategori', App\Http\Controllers\Kategori::class);
+        Route::resource('menu', App\Http\Controllers\Menu::class);
     });
-
 
     require __DIR__.'/auth.php';
 });

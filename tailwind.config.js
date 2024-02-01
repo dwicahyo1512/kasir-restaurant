@@ -12,11 +12,17 @@ export default {
         "./resources/js/**/*.vue",
         // "./app/Forms/*.php",
         // "./app/Tables/*.php",
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
         extend: {},
     },
 
-    plugins: [forms, typography],
+    plugins: [
+        require('flowbite/plugin'),
+        forms, typography],
 };
