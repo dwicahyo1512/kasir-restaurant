@@ -50,6 +50,10 @@ class Menus extends AbstractTable
         $table
             ->withGlobalSearch(columns: ['id'])
             ->column('id', sortable: true)
+            ->column('image')
+            ->column('nama_menu')
+            ->column('nama_menu')
+            ->column('nama_menu')
             ->column('nama_menu');
             // ->searchInput()
             // ->selectFilter()
