@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class menudashboard extends Component
+class Modal extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class menudashboard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.menu-dashboard');
+        return view('components.modal');
     }
 }
