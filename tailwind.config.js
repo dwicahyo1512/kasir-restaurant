@@ -24,18 +24,10 @@ export default {
         themes: [
             {
                 light: {
-                    ...require("daisyui/src/theming/themes")[
-                        "[data-theme=light]"
-                    ],
-                    // "secondary": "#F000B8",
-                    // "secondary-focus": "#CC009C",
+                    ...require("daisyui/src/theming/themes")["light"],
                 },
-                dracula: {
-                    ...require("daisyui/src/theming/themes")[
-                        "[data-theme=dracula]"
-                    ],
-                    "secondary": "#F000B8",
-                    "secondary-focus": "#CC009C",
+                dark: {
+                    ...require("daisyui/src/theming/themes")["dark"],
                 },
             },
         ],

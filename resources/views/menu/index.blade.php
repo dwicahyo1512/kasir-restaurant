@@ -4,10 +4,7 @@
             {{ __('Menu') }}
         </h2>
     </x-slot>
-    <div class="p-4 h-full sm:ml-64">
-        <div
-            class="max-w-screen-xl p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="py-12">
+  <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="flex">
                         <Link href="#refund-info"
@@ -58,6 +55,5 @@
                     </x-splade-table>
                 </div>
             </div>
-        </div>
-    </div>
+
 </x-app-layout>

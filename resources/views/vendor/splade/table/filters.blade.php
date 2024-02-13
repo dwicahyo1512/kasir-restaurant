@@ -17,7 +17,7 @@
     >
         @foreach($table->filters() as $filter)
             <div>
-                <h3 class="text-xs uppercase tracking-wide bg-gray-100 p-3">
+                <h3 class="text-xs uppercase tracking-wide bg-base-100 p-3">
                     {{ $filter->label }}
                 </h3>
 
@@ -25,7 +25,7 @@
                     @if($filter->type === 'select')
                         <select
                             name="filter-{{ $filter->key }}"
-                            class="block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm text-sm border-gray-300 rounded-md"
+                            class="block focus:ring-base-100 focus:border-base-100 w-full shadow-sm text-sm border-gray-300 rounded-md"
                             @change="table.updateQuery('filter[{{ $filter->key }}]', $event.target.value)"
                         >
                             @foreach($filter->options() as $optionKey => $option)

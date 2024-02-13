@@ -1,10 +1,10 @@
-<tbody class="divide-y divide-gray-200 bg-white">
+<tbody class="divide-y divide-gray-200 bg-base-100">
     @forelse($table->resource as $itemKey => $item)
         <tr
             :class="{
-                'bg-gray-50': table.striped && @js($itemKey) % 2,
-                'hover:bg-gray-100': table.striped,
-                'hover:bg-gray-50': !table.striped
+                'bg-base-200': table.striped && @js($itemKey) % 2,
+                'hover:bg-neutral': table.striped,
+                'hover:bg-base-200': !table.striped
             }"
         >
             @if($hasBulkActions = $table->hasBulkActions())
@@ -29,7 +29,7 @@
                         @click="(event) => table.visit(@js($table->rowLinks->get($itemKey)), @js($table->rowLinkType), event)"
                     @endif
                     v-show="table.columnIsVisible(@js($column->key))"
-                    class="whitespace-nowrap text-sm @if($loop->first && $hasBulkActions) pr-6 @else px-6 @endif py-4 @if($column->highlight) text-gray-900 font-medium @else text-gray-500 @endif @if($table->rowLinks->has($itemKey)) cursor-pointer @endif {{ $column->classes }}"
+                    class="whitespace-nowrap text-sm @if($loop->first && $hasBulkActions) pr-6 @else px-6 @endif py-4 @if($column->highlight) text-base-content font-medium @else text-base-content @endif @if($table->rowLinks->has($itemKey)) cursor-pointer @endif {{ $column->classes }}"
                 >
                     <div class="flex flex-row items-center @if($column->alignment == 'right') justify-end @elseif($column->alignment == 'center') justify-center @else justify-start @endif">
                         @isset(${'spladeTableCell' . $column->keyHash()})

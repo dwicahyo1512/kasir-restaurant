@@ -63,7 +63,7 @@
             <div class="flex-1 flex flex-col items-start justify-center">
                 <h1 class="text-6xl lg:text-7xl xl:text-8xl text-gray-200 tracking-wider font-bold font-serif mt-12 text-center md:text-left">We Are <span class="text-yellow-300">Coming</span> Soon</h1>
 
-                <div class="mt-12 flex flex-col items-center mt-8 ml-2">
+                <div class="flex flex-col items-center mt-8 ml-2">
                     <p class="text-gray-300 uppercase text-sm">Time left until lunching</p>
                     <div class="flex items-center justify-center space-x-4 mt-4" x-data="timer(new Date().setDate(new Date().getDate() + 1))" x-init="init();">
                         <div class="flex flex-col items-center px-4">

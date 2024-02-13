@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\View\Composer\SidebarComposer;
+use App\View\Composer\MainComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,7 +22,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('*', 'App\View\Composer\SidebarComposer');
-        View::composer('*', 'App\View\Composer\MainComposer');
+        View::composer('*', SidebarComposer::class);
+        View::composer('*', MainComposer::class);
     }
 }
