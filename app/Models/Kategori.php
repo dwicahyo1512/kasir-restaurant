@@ -17,4 +17,8 @@ class Kategori extends Model
         'nama_kategori',
         'keterangan_kategori',
     ];
+    public function menu()
+    {
+        return $this->hasOne(Menu::class);
+    }
 }

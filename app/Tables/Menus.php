@@ -2,6 +2,7 @@
 
 namespace App\Tables;
 
+use App\Models\Kategori;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use ProtoneMedia\Splade\AbstractTable;
@@ -34,9 +35,14 @@ class Menus extends AbstractTable
      *
      * @return mixed
      */
-    public function for()
+    public function for ()
     {
         return Menu::query();
+
+        // return QueryBuilder::for(Menu::class)
+        // ->defaultSort('id')
+        // ->allowedSorts(['id', 'nama_menu', 'harga_menu'])
+        // ->allowedFilters(['id','kategori_id']);
     }
 
     /**
@@ -47,19 +53,22 @@ class Menus extends AbstractTable
      */
     public function configure(SpladeTable $table)
     {
+
         $table
             ->withGlobalSearch(columns: ['id'])
             ->column('id', sortable: true)
             ->column('image')
+            ->column(key: 'kategori.nama_kategori', label: 'Kategori')
             ->column('nama_menu')
-            ->column('nama_menu')
-            ->column('nama_menu')
-            ->column('nama_menu');
-            // ->searchInput()
-            // ->selectFilter()
-            // ->withGlobalSearch()
+            ->column('harga_menu')
+            ->column('status')
+            ->column('keterangan_menu')
+            ->column('actions');
+        // ->searchInput()
+        // ->selectFilter()
+        // ->withGlobalSearch()
 
-            // ->bulkAction()
-            // ->export()
+        // ->bulkAction()
+        // ->export()
     }
 }

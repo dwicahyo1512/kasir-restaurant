@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_menu');
             $table->string('img_menu');
             $table->bigInteger('harga_menu');
-            $table->enum('status', ['ada', 'habis']);
+            $table->tinyInteger('status');
             $table->string('keterangan_menu');
             $table->timestamps();
         });

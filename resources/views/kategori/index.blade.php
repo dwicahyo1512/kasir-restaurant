@@ -24,10 +24,10 @@
                         <p class="text-center">no data!</p>
                     </x-slot>
                     <x-splade-cell actions as="$kategori" class="">
-                        <x-splade-link href="{{ route('kategori.edit', $kategori) }}" :data="['nama' => $kategori]"
+                        <Link slideover href="/kategori/{{ $kategori->id }}/edit"
                             class="p-2 bg-info text-white rounded-lg">
                             Edit
-                        </x-splade-link>
+                        </Link>
                         <x-splade-form action="{{ route('kategori.destroy', $kategori) }}" method="delete"
                             confirm="Delete kategori" confirm-text="Are you sure you want to delete your kategori?"
                             confirm-button="Yes, delete this kategori!" cancel-button="No, I want to stay!">

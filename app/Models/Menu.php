@@ -10,6 +10,7 @@ class Menu extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nama_kategori',
         'kategori_id',
         'nama_menu',
         'img_menu',
@@ -17,4 +18,9 @@ class Menu extends Model
         'status',
         'keterangan_menu',
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class);
+    }
 }
