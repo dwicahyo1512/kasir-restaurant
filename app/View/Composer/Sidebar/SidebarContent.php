@@ -52,9 +52,42 @@ class SidebarContent
                                 'title' => 'Menu',
                                 'route' => 'menu.index',
                                 'icon' => null,
+                            ],
+                            [
+                                'title' => 'Discount',
+                                'route' => 'discount.index',
+                                'icon' => null,
                             ]
                         ],
                     ],
+                ],
+            ],
+            [
+                'title' => 'Kasir',
+                'permissions' => '',
+                'menus' => [
+                    [
+                        'title' => 'Kasir Pesanan',
+                        'route' => 'kasir.index',
+                        'icon' => @svg('heroicon-o-shopping-cart'),
+                        'permissions' => '',
+                        'menus' => [],
+                    ],
+                ],
+            ],
+            [
+                'title' => 'Admin',
+                'permissions' => '',
+                'menus' => [
+                    [
+                        'title' => 'Users',
+                        'route' => 'users.index',
+                        'icon' => @svg('heroicon-o-users'),
+                        'permissions' => '',
+                        'menus' => [
+
+                        ],
+                    ]
                 ],
             ]
         ];

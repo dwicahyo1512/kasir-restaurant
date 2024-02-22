@@ -82,7 +82,8 @@ class Menu extends Controller
         $image_menu = ExistingFile::fromDisk('public')->get('menu_img/'. $menu->img_menu);
         return view('menu.edit', [
             'menu' => $menu,
-            'image_menu' => $image_menu
+            'image_menu' => $image_menu,
+            'kategoris' => Kategori::pluck('nama_kategori','id')->toArray()
         ]);
     }
 
@@ -94,13 +95,15 @@ class Menu extends Controller
         //
 
         $this->validate($request, [
-            'image'     => 'nullable|image|mimes:jpeg,jpg,png',
+            'image_menu'     => 'nullable|image|mimes:jpeg,jpg,png',
             'nama_menu'     => 'required|min:5',
+            'kategori'     => 'required',
             'harga_menu'     => 'required|min:1'
         ]);
 
         $menu->update([
             'nama_menu' => $request->nama_menu,
+            'kategori_id' => $request->kategori,
             'harga_menu' => $request->harga_menu,
             'status' => $request->status,
             'keterangan_menu' => $request->keterangan_menu,

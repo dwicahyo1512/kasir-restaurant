@@ -8,7 +8,7 @@
         <!-- Page Content -->
         <div class="flex flex-col justify-between min-h-screen">
 
-            <main class="p-10">
+            <main class="p-5">
                 {{ $slot }}
             </main>
 

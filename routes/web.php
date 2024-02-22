@@ -54,7 +54,9 @@ Route::middleware('splade')->group(function () {
         Route::resource('users', App\Http\Controllers\UserController::class);
         Route::resource('kategori', App\Http\Controllers\Kategori::class);
         Route::resource('menu', App\Http\Controllers\Menu::class);
+        Route::resource('discount', App\Http\Controllers\discount::class);
+        Route::resource('kasir', App\Http\Controllers\Kasir::class);
     });
 
-    require __DIR__.'/auth.php';
+    require __DIR__ . '/auth.php';
 });

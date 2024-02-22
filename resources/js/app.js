@@ -3,6 +3,7 @@ import "../css/app.css";
 import "@protonemedia/laravel-splade/dist/style.css";
 
 import ThemeToggle from "./components/ThemeToggle.vue";
+import Kasir from "./components/KasirPesanan.vue";
 
 // import "ionicons/dist/ionicons.js";
 
@@ -17,7 +18,13 @@ createApp({
     .use(SpladePlugin, {
         max_keep_alive: 10,
         transform_anchors: true,
-        progress_bar: true,
+        progress_bar:  {
+            delay: 250,
+            color: "#4B5563",
+            css: true,
+            spinner: true,
+        }
     })
+    .component("kasir-pesanan" , Kasir)
     .component("theme-toggle", ThemeToggle)
     .mount(el);

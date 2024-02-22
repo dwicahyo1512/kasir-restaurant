@@ -29,6 +29,11 @@
             />
         </svg>
     </label>
+    <button @click="toggleFullScreen">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+</svg>
+</button>
 </template>
 
 <script>
@@ -47,10 +52,19 @@ export default {
     },
     methods: {
         toggleTheme() {
-            const newTheme = this.theme === "light" ? "dracula" : "light";
+            const newTheme = this.theme === "light" ? "dark" : "light";
             document.documentElement.setAttribute("data-theme", newTheme);
             this.theme = newTheme;
             localStorage.setItem("theme", newTheme);
+        },
+        toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
         },
     },
 };
