@@ -11,9 +11,9 @@
         ]) }} :true-value="@js($value)" :false-value="@js($falseValue)" />
 
         @if(trim($slot))
-            <span class="ml-2">{{ $slot }}</span>
+            <span class="ltr:ml-2 rtl:mr-2 text-gray-700 dark:text-gray-300 font-sans">{{ $slot }}</span>
         @else
-            <span class="ml-2">{{ $label }}</span>
+            <span class="ml-2 rtl:mr-2 text-gray-700 dark:text-gray-300 font-sans">{{ $label }}</span>
         @endif
     </label>
 

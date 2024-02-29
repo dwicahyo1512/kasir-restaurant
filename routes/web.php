@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Pesanan;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -53,10 +54,19 @@ Route::middleware('splade')->group(function () {
 
         Route::resource('users', App\Http\Controllers\UserController::class);
         Route::resource('kategori', App\Http\Controllers\Kategori::class);
+        Route::resource('meja', App\Http\Controllers\Meja::class);
         Route::resource('menu', App\Http\Controllers\Menu::class);
         Route::resource('discount', App\Http\Controllers\discount::class);
         Route::resource('kasir', App\Http\Controllers\Kasir::class);
-    });
+        Route::resource('pesanan', App\Http\Controllers\Pesanan::class);
+        Route::get('test/pdf', [App\Http\Controllers\Kasir::class, 'struk1'])->name('test1.pdf');
+        Route::get('test/pdf1', [App\Http\Controllers\Kasir::class, 'struk2'])->name('test2.pdf');
+        Route::get('proses', [Pesanan::class, 'proses'])->name('proses.pesanan');
+        Route::post('proses', [Pesanan::class, 'UpdateStatus'])->name('update.pesanan');
 
+    });
+    Route::get('/testhtml', function () {
+        return view('invoice');
+    });
     require __DIR__ . '/auth.php';
 });

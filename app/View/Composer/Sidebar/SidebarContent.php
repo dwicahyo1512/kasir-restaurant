@@ -49,6 +49,12 @@ class SidebarContent
                                 'icon' => null,
                             ],
                             [
+                                'title' => 'Meja',
+                                'route' => 'meja.index',
+                                'permissions' => '',
+                                'icon' => null,
+                            ],
+                            [
                                 'title' => 'Menu',
                                 'route' => 'menu.index',
                                 'icon' => null,
@@ -70,6 +76,20 @@ class SidebarContent
                         'title' => 'Kasir Pesanan',
                         'route' => 'kasir.index',
                         'icon' => @svg('heroicon-o-shopping-cart'),
+                        'permissions' => '',
+                        'menus' => [],
+                    ],
+                    [
+                        'title' => 'Proses Pesanan',
+                        'route' => 'proses.pesanan',
+                        'icon' => @svg('heroicon-o-server-stack'),
+                        'permissions' => '',
+                        'menus' => [],
+                    ],
+                    [
+                        'title' => 'History Pesanan',
+                        'route' => 'pesanan.index',
+                        'icon' => @svg('heroicon-o-arrow-path'),
                         'permissions' => '',
                         'menus' => [],
                     ],

@@ -7,7 +7,7 @@
         @includeWhen($label, 'splade::form.label', ['label' => $label])
 
         <textarea {{ $attributes->except(['v-if', 'v-show', 'class', 'autosize'])->class(
-            'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50'
+            'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:focus:border-indigo-400 dark:focus:ring-indigo-300 placeholder:text-gray-300'
         )->merge([
             'name' => $name,
             'v-model' => $vueModel(),

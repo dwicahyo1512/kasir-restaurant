@@ -42,7 +42,17 @@ class Discount extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'type' => 'required|string|in:percentage,fixed',
-            'value' => 'required|numeric',
+            'value' => [
+                'required',
+                'numeric',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->type === 'percentage' && ($value < 0 || $value > 100)) {
+                        $fail('The ' . $attribute . ' must be between 0 and 100 for percentage type.');
+                    } elseif ($request->type === 'fixed' && $value < 0) {
+                        $fail('The ' . $attribute . ' must be a positive number for fixed type.');
+                    }
+                },
+            ],
             'min_purchase_amount' => 'nullable|numeric',
             'daterange' => 'required',
         ]);

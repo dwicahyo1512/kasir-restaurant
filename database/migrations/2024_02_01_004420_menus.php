@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('kategori_id')->references('id')->on('kategoris');
             $table->string('nama_menu');
             $table->string('img_menu');
-            $table->bigInteger('harga_menu');
+            $table->integer('harga_menu');
             $table->tinyInteger('status');
             $table->string('keterangan_menu');
             $table->timestamps();

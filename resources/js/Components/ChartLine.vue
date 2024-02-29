@@ -1,29 +1,33 @@
 <template>
-    <LineChart :chartData="testData" />
+    <div>
+        <apexchart width="500" type="line" :options="chartOptions" :series="series"></apexchart>
+    </div>
   </template>
 
-  <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { LineChart } from 'vue-chart-3';
-  import { Chart, registerables } from "chart.js";
+  <script>
+  import VueApexCharts from 'vue3-apexcharts';
 
-  Chart.register(...registerables);
-
-  export default defineComponent({
-    name: 'Home',
-    components: { LineChart },
-    setup() {
-      const testData = {
-        labels: ['Paris', 'Nîmes', 'Toulon', 'Perpignan', 'Autre'],
-        datasets: [
+  export default {
+    components: {
+      apexchart: VueApexCharts,
+    },
+    data() {
+      return {
+        chartOptions: {
+          chart: {
+            id: "vuechart-ALAM",
+          },
+          xaxis: {
+            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+          },
+        },
+        series: [
           {
-            data: [30, 40, 60, 70, 5],
-            backgroundColor: ['#77CEFF', '#0079AF', '#123E6B', '#97B0C4', '#A5C8ED'],
+            name: "series-1",
+            data: [30, 40, 35, 50, 49, 60, 70, 91],
           },
         ],
       };
-
-      return { testData };
     },
-  });
+  };
   </script>

@@ -7,30 +7,30 @@
         />
     </x-slot:trigger>
 
-    <div class="mt-2 min-w-max rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+    <div class="mt-2 min-w-max rounded-md shadow-lg bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5">
         <div class="flex flex-col">
             <button
-                class="text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-normal"
+                class="text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-900 font-normal"
                 @click="table.setSelectedItems(@js($table->getPrimaryKeys()))"
                 dusk="select-all-on-this-page">
-                {{ __('Select all on this page') }} ({{ $table->totalOnThisPage() }})
+                {{ __('select_all_on_this_page') }} ({{ $table->totalOnThisPage() }})
             </button>
 
             @if($showPaginator())
                 <button
-                    class="text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-normal"
+                    class="text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-900 font-normal"
                     @click="table.setSelectedItems(['*'])"
                     dusk="select-all-results">
-                    {{ __('Select all results') }} ({{ $table->totalOnAllPages() }})
+                    {{ __('select_all_results') }} ({{ $table->totalOnAllPages() }})
                 </button>
             @endif
 
             <button
                 v-if="table.hasSelectedItems"
-                class="text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 font-normal"
+                class="text-left w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-900 font-normal"
                 @click="table.setSelectedItems([])"
                 dusk="select-none">
-                {{ __('Clear selection') }}
+                {{ __('clear_selection') }}
             </button>
         </div>
     </div>

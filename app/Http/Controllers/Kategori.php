@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori as ModelsKategori;
 use App\Tables\Kategoris;
 use Illuminate\Http\Request;
+
 use ProtoneMedia\Splade\Facades\Toast;
 
 class Kategori extends Controller
@@ -38,7 +39,9 @@ class Kategori extends Controller
             'nama_kategori' => $request->kategori,
             'keterangan_kategori' => $request->Keterangan,
         ]);
-        Toast::title('Kategori Tersimpan')->rightTop()->autoDismiss(3);
+        Toast::title('Successs!')
+            ->message('Tambah Kategori Berhasil')
+            ->success()->autoDismiss(3);
         return to_route('kategori.index');
     }
 

@@ -3,6 +3,7 @@ import typography from "@tailwindcss/typography";
 
 /* @type {import('tailwindcss').Config} */
 export default {
+    darkMode: ['class', '[data-theme="dark"]'],
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./vendor/protonemedia/laravel-splade/lib/**/*.vue",
@@ -31,5 +32,6 @@ export default {
                 },
             },
         ],
+        darkTheme: "dark",
     },
 };

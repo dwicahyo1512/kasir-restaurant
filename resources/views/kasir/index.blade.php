@@ -4,6 +4,8 @@
             {{ __('Kasir') }}
         </h2>
     </x-slot>
-  <kasir-pesanan />
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-2">
+        <kasir-pesanan :menus="@js($menus)" :discounts="@js($discounts)"  :categories="@js($categories)"  :pesanan="@js($pesanan)" />
+    </div>
 
 </x-app-layout>

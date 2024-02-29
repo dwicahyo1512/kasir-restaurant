@@ -4,7 +4,7 @@
     </h2>
 </div>
 <div class="flex-none space-x-3">
-    <div class="dropdown dropdown-end">
+    {{-- <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle">
             <div class="indicator">
                 <x-heroicon-o-bell-alert />
@@ -16,7 +16,7 @@
                 You don't have any notifications
             </div>
         </div>
-    </div>
+    </div> --}}
     <theme-toggle></theme-toggle>
     <div class="tooltip tooltip-bottom" data-tip="Profile">
         <div class="dropdown dropdown-end">

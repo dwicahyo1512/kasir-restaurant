@@ -20,6 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        SEO::metaByName('theme-color', '#D926A9');
+
     }
 }

@@ -9,6 +9,6 @@ class MainComposer
 {
     public function compose(View $view)
     {
-        $view->with('title', Str::headline(config('app.name')));
+        $view->with('tittle', Str::headline(config('app.name')));
     }
 }
