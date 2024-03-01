@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_meja');
             $table->string('nomer_meja');
-            // Ubah tipe data id_pesanan menjadi unsignedBigInteger
-            $table->unsignedBigInteger('id_pesanan')->nullable();
-            $table->foreign('id_pesanan')->references('id')->on('pesanans')->onDelete('set null');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

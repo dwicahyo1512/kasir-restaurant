@@ -1,9 +1,9 @@
 <SpladeConfirm
-    default-title="{{ __('main.are_you_sure_you_want_to_continue?') }}"
+    default-title="{{ __('are_you_sure_you_want_to_continue?') }}"
     default-text=""
-    default-password-text="{{ __('main.please_confirm_your_password_before_continuing') }}"
-    default-confirm-button="{{ __('main.confirm') }}"
-    default-cancel-button="{{ __('main.cancel') }}"
+    default-password-text="{{ __('please_confirm_your_password_before_continuing') }}"
+    default-confirm-button="{{ __('confirm') }}"
+    default-cancel-button="{{ __('cancel') }}"
     confirm-password-route="{{ $confirmPasswordRoute ?? "" }}"
     confirmed-password-status-route="{{ $confirmedPasswordStatusRoute ?? "" }}"
 >

@@ -19,9 +19,11 @@ return new class extends Migration {
             $table->string('type_discount');
             $table->string('value_discount');
             $table->string('min_purchase_amount');
+            $table->unsignedBigInteger('id_meja');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
             // Definisi foreign key constraints
+            $table->foreign('id_meja')->references('id')->on('mejas')->onDelete('cascade');
         });
 
     }

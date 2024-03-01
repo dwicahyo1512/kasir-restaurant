@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\MainHelper;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -26,7 +27,11 @@ class Handler extends ExceptionHandler
         $this->renderable(\ProtoneMedia\Splade\SpladeCore::exceptionHandler($this));
 
         $this->reportable(function (Throwable $e) {
-            //
+            MainHelper::make_error_report([
+                'error'=>$e->getMessage(),
+                'error_code'=>500,
+                'details'=>"Error : ".$e->getFile()." Line : ". $e->getLine() . json_encode(request()->instance())
+            ]);
         });
     }
 }

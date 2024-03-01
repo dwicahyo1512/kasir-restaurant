@@ -1,9 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-base-content leading-tight">
-            {{ __('meja') }}
-        </h2>
-    </x-slot>
+    <x-breadcrumbs>
+        <x-breadcrumbs-link>
+            <Link href="/meja">
+            Meja
+            </Link>
+        </x-breadcrumbs-link>
+    </x-breadcrumbs>
     <div class="max-w-screen-xl p-6 bg-base border border-base-300 rounded-lg shadow">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -23,6 +25,11 @@
                     <x-slot:empty-state>
                         <p class="text-center">no data!</p>
                     </x-slot>
+                    <x-splade-cell status as="$menu">
+                        <tr>
+                            {{ $menu->status == 1 ? 'Terisi' : 'Kosong' }}
+                        </tr>
+                    </x-splade-cell>
                     <x-splade-cell actions as="$meja" class="">
                         <Link slideover href="/meja/{{ $meja->id }}/edit"
                             class="p-2 bg-info text-white rounded-lg">

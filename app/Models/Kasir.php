@@ -17,6 +17,7 @@ class Kasir extends Model
         'type_discount',
         'value_discount',
         'min_purchase_amount',
+        'nama_meja',
         'status',
     ];
 

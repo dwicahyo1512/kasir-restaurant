@@ -45,23 +45,25 @@ class SidebarContent
                             [
                                 'title' => 'Kategori',
                                 'route' => 'kategori.index',
-                                'permissions' => '',
+                                'permissions' => 'read kategori',
                                 'icon' => null,
                             ],
                             [
                                 'title' => 'Meja',
                                 'route' => 'meja.index',
-                                'permissions' => '',
+                                'permissions' => 'read meja',
                                 'icon' => null,
                             ],
                             [
                                 'title' => 'Menu',
                                 'route' => 'menu.index',
+                                'permissions' => 'read kasir',
                                 'icon' => null,
                             ],
                             [
                                 'title' => 'Discount',
                                 'route' => 'discount.index',
+                                'permissions' => 'read discount',
                                 'icon' => null,
                             ]
                         ],
@@ -70,40 +72,65 @@ class SidebarContent
             ],
             [
                 'title' => 'Kasir',
-                'permissions' => '',
+                'permissions' => 'read kasir',
                 'menus' => [
                     [
                         'title' => 'Kasir Pesanan',
                         'route' => 'kasir.index',
                         'icon' => @svg('heroicon-o-shopping-cart'),
-                        'permissions' => '',
+                        'permissions' => 'read kasir',
                         'menus' => [],
                     ],
                     [
                         'title' => 'Proses Pesanan',
                         'route' => 'proses.pesanan',
                         'icon' => @svg('heroicon-o-server-stack'),
-                        'permissions' => '',
+                        'permissions' => 'read proses',
                         'menus' => [],
                     ],
                     [
                         'title' => 'History Pesanan',
                         'route' => 'pesanan.index',
                         'icon' => @svg('heroicon-o-arrow-path'),
-                        'permissions' => '',
+                        'permissions' => 'read kasir',
                         'menus' => [],
                     ],
                 ],
             ],
             [
                 'title' => 'Admin',
-                'permissions' => '',
+                'permissions' => 'read users',
                 'menus' => [
                     [
                         'title' => 'Users',
                         'route' => 'users.index',
                         'icon' => @svg('heroicon-o-users'),
-                        'permissions' => '',
+                        'permissions' => 'read users',
+                        'menus' => [
+
+                        ],
+                    ],[
+                        'title' => 'Setting',
+                        'route' => 'settings.index',
+                        'icon' => @svg('heroicon-o-wrench'),
+                        'permissions' => 'update settings',
+                        'menus' => [
+
+                        ],
+                    ],
+                    [
+                        'title' => 'Role',
+                        'route' => 'roles.index',
+                        'icon' => @svg('heroicon-o-identification'),
+                        'permissions' => 'read roles',
+                        'menus' => [
+
+                        ],
+                    ],[
+                        'title' => 'Permision',
+                        'route' => 'permissions.index',
+                        'icon' => @svg('heroicon-o-key'),
+                        'permissions' => 'read permissions',
                         'menus' => [
 
                         ],

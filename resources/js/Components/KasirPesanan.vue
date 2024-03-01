@@ -292,6 +292,19 @@
                                 placeholder="Type here"
                                 class="input input-bordered w-full max-w-xs"
                             />
+                            <h1 class="text-xl text-base-content">
+                                Pilih Meja
+                            </h1>
+                            <select
+                                v-model="selectedMeja"
+                                class="select w-full max-w-xs"
+                            >
+                                <option value="">Pilih Meja</option>
+                                <option v-for="meja in meja" :value="meja.id">
+                                    {{ meja.nama_meja }} -
+                                    {{ meja.nomer_meja }}
+                                </option>
+                            </select>
                         </template>
                     </ModalKasir>
                 </Teleport>
@@ -335,6 +348,10 @@ export default {
             type: Array,
             required: true,
         },
+        meja: {
+            type: Array,
+            required: true,
+        },
     },
     setup() {
         const onSwiper = (swiper) => {
@@ -353,6 +370,7 @@ export default {
         return {
             orderedItems: [],
             selectedDiscount: null,
+            selectedMeja: null,
             showModal: false,
             loadingModal: false,
             buyerName: "",
@@ -465,10 +483,10 @@ export default {
                         position: "top right",
                     }
                 );
-                return; // Berhenti proses pembayaran jika validasi gagal
+                return; // Hentikan proses pembayaran jika validasi gagal
             }
+
             if (!this.orderedItems.length) {
-                // Jika tidak ada item yang dipilih, tampilkan pesan kesalahan
                 this.$refs.alert.showAlert(
                     "warning",
                     "Items belum di tambahkan",
@@ -481,9 +499,11 @@ export default {
                 );
                 return;
             }
+
             const selectedDiscount = this.discounts.find(
                 (discount) => discount.id === this.selectedDiscount
             );
+
             if (selectedDiscount && this.isDisabled(selectedDiscount)) {
                 this.$refs.alert.showAlert(
                     "warning",
@@ -497,15 +517,12 @@ export default {
                 );
                 return;
             }
-            // console.log(
-            //     this.orderedItems,
-            //     this.totalPayment,
-            //     selectedDiscount,
-            //     this.totalDiscount
-            // );
+
             this.loadingModal = true;
+
             const paymentData = {
                 name: this.buyerName,
+                id_meja: this.selectedMeja,
                 orderedItems: this.orderedItems,
                 totalPayment: this.totalPayment,
                 selectedDiscount: selectedDiscount,
@@ -531,7 +548,6 @@ export default {
                     console.log(response.data);
                 })
                 .catch((error) => {
-                    // Handle kesalahan jika terjadi
                     console.error(error);
                     this.loadingModal = false;
                     this.showModal = false;

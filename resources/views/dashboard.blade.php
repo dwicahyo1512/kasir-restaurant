@@ -2,26 +2,18 @@
     <x-slot name="headerNav">
         {{ __('Dashboard') }}
     </x-slot>
-    <div class="card card-compact w-96 bg-base-100 shadow-xl px-6">
-        <div class="text-sm breadcrumbs">
-            <ul>
-                <li>
-                    <Link href="/">
-                    Home
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/dashboard">
-                    Dashboard
-                    </Link>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="card card-compact w-auto bg-base-100 shadow-xl my-4">
+
+    <x-breadcrumbs>
+        <x-breadcrumbs-link>
+            <Link href="/dashboard">
+            Dashboard
+            </Link>
+        </x-breadcrumbs-link>
+    </x-breadcrumbs>
+    <div class="card card-compact w-auto bg-base-100 items-center shadow-xl my-4">
         <Lingkar-chart />
     </div>
-    <div class="card card-compact w-auto bg-base-100 shadow-xl">
+    <div class="card card-compact w-auto bg-base-100 items-center shadow-xl">
         <Line-chart />
     </div>
 

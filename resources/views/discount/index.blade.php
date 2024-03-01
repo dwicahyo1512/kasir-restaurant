@@ -1,9 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-base-content leading-tight">
-            {{ __('Discount') }}
-        </h2>
-    </x-slot>
+    <x-breadcrumbs>
+        <x-breadcrumbs-link>
+            <Link href="/discount">
+            Discount
+            </Link>
+        </x-breadcrumbs-link>
+    </x-breadcrumbs>
     <div class="max-w-screen-xl p-6 bg-base border border-base-300 rounded-lg shadow">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

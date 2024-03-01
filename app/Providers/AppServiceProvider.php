@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use ProtoneMedia\Splade\Facades\SEO;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +20,29 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $smtpConfig = [
+            'driver'    => 'smtp',
+            'host'    => getSetting('smtp_host'),
+            'port'    => getSetting('smtp_port'),
+            'encryption'    => getSetting('smtp_encryption'),
+            'username'    => getSetting('smtp_username'),
+            'password'    => getSetting('smtp_password'),
+            'from'    => [
+                'address' => getSetting('smtp_sender_email'),
+                'name' => getSetting('smtp_sender_name')
+            ]
+        ];
+        Config::set('mail', $smtpConfig);
 
+        Config::set('app.name', getSetting('website_name'));
+        Config::set('app.url', getSetting('website_url'));
+
+        $timezone = getSetting('timezone');
+
+        if (in_array($timezone, timezone_identifiers_list())) {
+            Config::set('app.timezone', $timezone);
+        } else {
+            Config::set('app.timezone', 'UTC');
+        }
     }
 }

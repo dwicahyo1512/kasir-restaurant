@@ -1,9 +1,14 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Users') }}
-        </h2>
-    </x-slot>
+    <x-breadcrumbs>
+        <x-breadcrumbs-link>
+            <Link href="/users">
+            Users
+            </Link>
+        </x-breadcrumbs-link>
+        <x-breadcrumbs-link>
+            Create
+        </x-breadcrumbs-link>
+    </x-breadcrumbs>
     <div class="p-4 h-full sm:ml-64">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

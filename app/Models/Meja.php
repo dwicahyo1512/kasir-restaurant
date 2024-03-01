@@ -12,14 +12,15 @@ class Meja extends Model
     protected $fillable = [
         'nama_meja',
         'nomer_meja',
-        'id_pesanan',
+        'status',
+        'id_kasirs',
     ];
 
     /**
      * Get the pesanan associated with the meja.
      */
-    public function pesanan()
+    public function kasir()
     {
-        return $this->belongsTo(Pesanan::class, 'id_pesanan');
+        return $this->belongsTo(Kasir::class);
     }
 }

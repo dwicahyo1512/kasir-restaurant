@@ -31,19 +31,31 @@ class Meja extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(request $request)
+    public function store(Request $request)
     {
-        //
-        // dd($request->all());
+        // Validasi data yang diterima dari request
+        $request->validate([
+            'meja' => 'required|string', // Contoh validasi untuk nama meja yang diperlukan dan harus berupa string
+            'kode_meja' => 'required|string', // Contoh validasi untuk nomer meja yang diperlukan dan harus berupa string
+        ]);
+
+        // Buat entri baru dalam database menggunakan model Modelsmeja
         Modelsmeja::create([
             'nama_meja' => $request->meja,
+            'status' => 0,
             'nomer_meja' => $request->kode_meja,
         ]);
-        Toast::title('Successs!')
+
+        // Tampilkan notifikasi toast untuk memberi tahu pengguna bahwa penambahan meja berhasil
+        Toast::title('Success!')
             ->message('Tambah meja Berhasil')
-            ->success()->autoDismiss(3);
-        return to_route('meja.index');
+            ->success()
+            ->autoDismiss(3);
+
+        // Redirect pengguna ke halaman index meja setelah berhasil menambahkan meja
+        return redirect()->route('meja.index');
     }
+
 
     /**
      * Display the specified resource.

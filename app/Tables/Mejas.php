@@ -34,7 +34,7 @@ class Mejas extends AbstractTable
      *
      * @return mixed
      */
-    public function for()
+    public function for ()
     {
         return Meja::query();
     }
@@ -51,13 +51,17 @@ class Mejas extends AbstractTable
             ->withGlobalSearch(columns: ['id'])
             ->column('id', sortable: true)
             ->column('nama_meja')
-            ->column('nomer_meja');
+            ->column('nomer_meja')
+            ->column(key: 'status', label: 'Status')
+            ->column('status')
+            ->column('actions', exportAs: false)
+            ->paginate(15);
 
-            // ->searchInput()
-            // ->selectFilter()
-            // ->withGlobalSearch()
+        // ->searchInput()
+        // ->selectFilter()
+        // ->withGlobalSearch()
 
-            // ->bulkAction()
-            // ->export()
+        // ->bulkAction()
+        // ->export()
     }
 }

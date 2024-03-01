@@ -1,9 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Menu') }}
-        </h2>
-    </x-slot>
+    <x-breadcrumbs>
+        <x-breadcrumbs-link>
+            <Link href="/menu">
+            Menu
+            </Link>
+        </x-breadcrumbs-link>
+    </x-breadcrumbs>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex">
@@ -29,7 +31,7 @@
                         <x-splade-select name="kategori" :options="$kategoris" option-label="nama kategori"
                             placeholder="Select Kategori" choices />
                         <x-splade-input name="harga_menu" placeholder="Harga Menu" />
-                        <x-splade-textarea name="keterangan_menu" placeholder="Menu Keterangan" />
+                        <x-splade-textarea name="keterangan_menu" placeholder="Menu Keterangan" jodit />
                         <x-splade-checkbox name="status" value="1" false-value="0" label="Status" />
                         <x-splade-submit label="save" :spinner="true" />
                     </div>

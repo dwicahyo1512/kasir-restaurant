@@ -20,7 +20,7 @@
             @endforeach
 
             <x-splade-component is="table-wrapper">
-                <table class="table">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600 bg-white dark:bg-gray-700">
                     @unless($headless)
                         @isset($head)
                             {{ $head }}
