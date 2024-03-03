@@ -13,6 +13,13 @@ class Kategori extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('can:create kategori', ['only' => ['create', 'store']]);
+        $this->middleware('can:read kategori',   ['only' => ['show', 'index']]);
+        $this->middleware('can:update kategori',   ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete kategori',   ['only' => ['destroy']]);
+    }
     public function index()
     {
         return view('kategori.index', [

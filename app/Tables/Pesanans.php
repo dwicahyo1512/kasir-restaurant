@@ -35,7 +35,7 @@ class Pesanans extends AbstractTable
      *
      * @return mixed
      */
-    public function for()
+    public function for ()
     {
         return Kasir::query();
     }
@@ -55,12 +55,16 @@ class Pesanans extends AbstractTable
             ->column(key: 'nama_discount', label: 'Nama Discount')
             ->column(key: 'totalpayment', label: 'Total Payment')
             ->column(key: 'totaldiscount', label: 'Discount')
-            ->column('actions');
+            ->column('actions', exportAs: false)
             // ->searchInput()
-            // ->selectFilter()
-            // ->withGlobalSearch()
+            ->selectFilter('type_discount', [
+                'percentage' => 'Persen',
+                'fixed' => 'Fixed',
+            ])
+            ->export()
+            ->paginate(15);
+        // ->withGlobalSearch()
 
-            // ->bulkAction()
-            // ->export()
+        // ->bulkAction()
     }
 }

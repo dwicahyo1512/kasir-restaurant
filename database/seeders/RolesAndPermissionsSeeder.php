@@ -43,6 +43,11 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'update proses']);
         Permission::create(['name' => 'delete proses']);
 
+        Permission::create(['name' => 'create history']);
+        Permission::create(['name' => 'read history']);
+        Permission::create(['name' => 'update history']);
+        Permission::create(['name' => 'delete history']);
+
         Permission::create(['name' => 'create kategori']);
         Permission::create(['name' => 'read kategori']);
         Permission::create(['name' => 'update kategori']);
@@ -53,14 +58,22 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'update meja']);
         Permission::create(['name' => 'delete meja']);
 
+        Permission::create(['name' => 'create menu']);
+        Permission::create(['name' => 'read menu']);
+        Permission::create(['name' => 'update menu']);
+        Permission::create(['name' => 'delete menu']);
+
         Permission::create(['name' => 'create discount']);
         Permission::create(['name' => 'read discount']);
         Permission::create(['name' => 'update discount']);
         Permission::create(['name' => 'delete discount']);
 
-        Permission::create(['name' => 'read analytics']);
+        Permission::create(['name' => 'read dashboard']);
 
-        Permission::create(['name' => 'read reports']);
+        Permission::create(['name' => 'label controller']);
+        Permission::create(['name' => 'label kasir']);
+        Permission::create(['name' => 'label admin']);
+        Permission::create(['name' => 'label dashboard']);
 
         Permission::create(['name' => 'update settings']);
 
@@ -68,12 +81,52 @@ class RolesAndPermissionsSeeder extends Seeder
         // create roles and assign created permissions
 
         // this can be done as separate statements
-        $role = Role::create(['name' => 'user']);
-        $role->givePermissionTo('read users');
+
+        $role = Role::create(['name' => 'waiter']);
+        $role->givePermissionTo([
+            'label kasir',
+            'read proses',
+            'create proses',
+            'update proses',
+            'delete proses',
+            'create history',
+            'read history',
+            'update history',
+            'delete history'
+        ]);
+
+        $role = Role::create(['name' => 'owner']);
+        $role->givePermissionTo([
+            'label dashboard',
+            'read dashboard',
+            'label controller',
+            'create kategori',
+            'read kategori',
+            'update kategori',
+            'delete kategori',
+            'create meja',
+            'read meja',
+            'update meja',
+            'delete meja',
+            'create menu',
+            'read menu',
+            'update menu',
+            'delete menu',
+            'create discount',
+            'read discount',
+            'update discount',
+            'delete discount'
+        ]);
 
         // or may be done by chaining
         $role = Role::create(['name' => 'kasir'])
-            ->givePermissionTo(['read users', 'update users']);
+            ->givePermissionTo([
+                'label kasir',
+                'create kasir',
+                'read kasir',
+                'update kasir',
+                'delete kasir'
+            ]);
 
         $role = Role::create(['name' => 'super-admin']);
         $role->givePermissionTo(Permission::all());

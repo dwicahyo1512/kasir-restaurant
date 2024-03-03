@@ -1,90 +1,5 @@
 <template>
     <div class="xl:col-span-2">
-        <div class="card card-compact bg-base-100 shadow-xl">
-            <div class="card-body">
-                <div class="z-0">
-                    <swiper
-                        :modules="modules"
-                        :slides-per-view="3"
-                        :space-between="20"
-                        @swiper="onSwiper"
-                        @slideChange="onSlideChange"
-                    >
-                        <swiper-slide
-                            class="card-body w-60 bg-base-200 text-base-content rounded-lg"
-                            v-for="order in pesanan"
-                            :key="order.id"
-                        >
-                            <div class="flex">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-6 h-6"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                                    />
-                                </svg>
-
-                                <h2 class="pl-1">{{ order.id }}</h2>
-                                <p class="text-end">{{ order.nama_pemesan }} - {{ order.meja.nomer_meja }}</p>
-                            </div>
-                            <div
-                                class="card-actions rounded-2xl text-accent-content justify-between px-2 py-0.5"
-                                :class="{
-                                    'bg-success': order.status === 2,
-                                    'bg-info': order.status === 1,
-                                    'bg-warning': order.status === 0,
-                                }"
-                            >
-                                <div class="">
-                                    <div>
-                                        {{
-                                            order.status === 0
-                                                ? "Pesanan Pending"
-                                                : order.status === 1
-                                                ? "Pesanan Proses"
-                                                : order.status === 2
-                                                ? "Pesanan Done"
-                                                : ""
-                                        }}
-                                    </div>
-                                </div>
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-6 h-6"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                                    />
-                                </svg>
-                            </div>
-                        </swiper-slide>
-                        <swiper-slide> </swiper-slide>
-                        <template v-slot:container-start>
-                            <div class="card-title justify-between">
-                                Kasir
-                                <div class="">
-                                    <ButtonSwiper />
-                                </div>
-                            </div>
-                        </template>
-                    </swiper>
-                </div>
-            </div>
-        </div>
         <!-- Produk yang dijual -->
         <div class="card card-compact bg-base-100 shadow-xl mt-3">
             <div class="card-body">
@@ -266,7 +181,7 @@
 
                     <vue-basic-alert
                         :duration="300"
-                        :closeIn="3000"
+                        :closeIn="20000"
                         ref="alert"
                     />
                 </div>
@@ -310,20 +225,7 @@
             </div>
         </div>
     </div>
-    <div class="xl:col-span-3" v-if="showInvoice">
-        <div class="card card-compact bg-base-100 shadow-xl">
-            <div class="card-body h-[800px]">
-                <h2 class="card-title">Struk Pesanan</h2>
-                <button class="btn btn-neutral" @click="resetInvoiceItems">
-                    Reset
-                </button>
-                <iframe
-                    :src="`/struk/pesanan/${invoiceUrl}`"
-                    style="width: 100%; height: 100%"
-                ></iframe>
-            </div>
-        </div>
-    </div>
+
     <!-- ini nanti buat dua komponen vue terus untuk yang dibawah dibuat detail vue menggunakan form splade dan itu bisa di kirim ke controller -->
 </template>
 
@@ -354,10 +256,6 @@ export default {
             required: true,
         },
         categories: {
-            type: Array,
-            required: true,
-        },
-        pesanan: {
             type: Array,
             required: true,
         },
@@ -567,21 +465,19 @@ export default {
             };
 
             axios
-                .post("/kasir", paymentData)
+                .post("/client", paymentData)
                 .then((response) => {
-                    this.$splade.visit("/kasir");
+                    this.$splade.visit("/pelanggan/cart");
                     this.$refs.alert.showAlert(
                         "success",
                         response.data.message,
-                        "Payment Berhasil",
+                        "Payment Berhasil, Tunggu Waiter Datang Mengantar Pesanan Anda",
                         {
                             iconSize: 35,
                             iconType: "regular",
                             position: "top right",
                         }
                     );
-                    localStorage.setItem("showInvoice", "true");
-                    localStorage.setItem("invoiceUrl", response.data.data.id);
                     this.showModal = false;
                     this.loadingModal = false;
                     console.log(response.data);
@@ -649,6 +545,7 @@ export default {
                 const selectedDiscount = this.discounts.find(
                     (discount) => discount.id === this.selectedDiscount
                 );
+                
                 if (selectedDiscount) {
                     // Jika item memiliki diskon yang dipilih, tentukan jenis diskonnya
                     if (selectedDiscount.type === "percentage") {
@@ -671,16 +568,6 @@ export default {
             // Gunakan Math.max() untuk memastikan totalPayment tidak negatif
             return Math.max(this.totalPrice - this.totalDiscount, 0);
         },
-    },
-    mounted() {
-        const showInvoice = localStorage.getItem("showInvoice");
-        const invoiceUrl = localStorage.getItem("invoiceUrl");
-        if (showInvoice === "true") {
-            this.showInvoice = true;
-        }
-        if (invoiceUrl) {
-            this.invoiceUrl = invoiceUrl;
-        }
     },
 };
 </script>

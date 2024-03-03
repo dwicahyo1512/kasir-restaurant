@@ -34,13 +34,13 @@ class SidebarContent
             ],
             [
                 'title' => 'Controller',
-                'permissions' => '',
+                'permissions' => 'label controller',
                 'menus' => [
                     [
                         'title' => 'Master',
                         'route' => null,
                         'icon' => @svg('heroicon-o-folder-open'),
-                        'permissions' => '',
+                        'permissions' => 'label controller',
                         'menus' => [
                             [
                                 'title' => 'Kategori',
@@ -57,7 +57,7 @@ class SidebarContent
                             [
                                 'title' => 'Menu',
                                 'route' => 'menu.index',
-                                'permissions' => 'read kasir',
+                                'permissions' => 'read menu',
                                 'icon' => null,
                             ],
                             [
@@ -72,7 +72,7 @@ class SidebarContent
             ],
             [
                 'title' => 'Kasir',
-                'permissions' => 'read kasir',
+                'permissions' => 'label kasir',
                 'menus' => [
                     [
                         'title' => 'Kasir Pesanan',
@@ -99,7 +99,7 @@ class SidebarContent
             ],
             [
                 'title' => 'Admin',
-                'permissions' => 'read users',
+                'permissions' => 'label admin',
                 'menus' => [
                     [
                         'title' => 'Users',
@@ -109,7 +109,8 @@ class SidebarContent
                         'menus' => [
 
                         ],
-                    ],[
+                    ],
+                    [
                         'title' => 'Setting',
                         'route' => 'settings.index',
                         'icon' => @svg('heroicon-o-wrench'),
@@ -126,7 +127,8 @@ class SidebarContent
                         'menus' => [
 
                         ],
-                    ],[
+                    ],
+                    [
                         'title' => 'Permision',
                         'route' => 'permissions.index',
                         'icon' => @svg('heroicon-o-key'),

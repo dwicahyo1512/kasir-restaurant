@@ -11,7 +11,14 @@
     components: {
       apexchart: VueApexCharts,
     },
+    props: {
+        pesanan_bulan: {
+            type: Array,
+            required: true,
+        },
+    },
     data() {
+        console.log(this.pesanan_bulan);
       return {
         chartOptions: {
           chart: {
@@ -29,5 +36,6 @@
         ],
       };
     },
+
   };
   </script>

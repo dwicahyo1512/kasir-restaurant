@@ -19,8 +19,8 @@ class Meja extends Model
     /**
      * Get the pesanan associated with the meja.
      */
-    public function kasir()
+    public function kasirs()
     {
-        return $this->belongsTo(Kasir::class);
+        return $this->hasMany(Kasir::class);
     }
 }

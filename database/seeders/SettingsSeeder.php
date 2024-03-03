@@ -17,7 +17,7 @@ class SettingsSeeder extends Seeder
             # General
             [
                 'key' => 'website_name',
-                'value' => 'SpladePanel',
+                'value' => 'Kasir Restaurant',
             ],
             [
                 'key' => 'website_url',
@@ -25,7 +25,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'key' => 'website_email_address',
-                'value' => 'support@spladepanel.com',
+                'value' => 'support@KasirResto.com',
             ],
             [
                 'key' => 'user_registration',
@@ -51,7 +51,7 @@ class SettingsSeeder extends Seeder
             # SEO Configuration
             [
                 'key' => 'seo_title',
-                'value' => 'SpladePanel',
+                'value' => 'KasirRestaurant',
             ],
             [
                 'key' => 'seo_author',
@@ -67,7 +67,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'key' => 'social_title',
-                'value' => 'SpladePanel',
+                'value' => 'KasirRestaurant',
             ],
             [
                 'key' => 'social_description',

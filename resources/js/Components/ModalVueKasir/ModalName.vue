@@ -21,14 +21,19 @@ export default {
                     <slot name="body">default body</slot>
                 </div>
 
-                <div class="modal-footer mt-4 flex justify-end">
+                <div
+                    class="modal-footer mt-4 flex flex-col md:flex-row md:justify-end"
+                >
                     <slot name="footer">
                         <button
-                            class="btn btn-accent mr-2"
+                            class="btn btn-accent mr-0 mb-2 md:mr-2 md:mb-0"
                             @click="$emit('yes')"
                             :disabled="isLoading"
                         >
-                            <span v-if="isLoading" class="loading loading-spinner loading-md text-success"></span>
+                            <span
+                                v-if="isLoading"
+                                class="loading loading-spinner loading-md text-success"
+                            ></span>
                             <span v-else>Lanjutkan, Payment</span>
                         </button>
                         <button class="btn btn-neutral" @click="$emit('close')">

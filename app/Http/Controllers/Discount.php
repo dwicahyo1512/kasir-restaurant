@@ -12,6 +12,14 @@ class Discount extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('can:create discount', ['only' => ['create', 'store']]);
+        $this->middleware('can:read discount',   ['only' => ['show', 'index']]);
+        $this->middleware('can:update discount',   ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete discount',   ['only' => ['destroy']]);
+    }
+    
     public function index()
     {
         //

@@ -74,32 +74,32 @@
                 {{-- Update Button --}}
 
                 {{-- SEO Configuration  --}}
-                <h2 class="text-2xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-3xl">seo_configuration</h2>
+                {{-- <h2 class="text-2xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-3xl">seo_configuration</h2> --}}
 
                 {{-- SEO Title --}}
-                <x-splade-input v-model="form.seo_title" name="seo_title" :label="__('seo_title')" />
+                {{-- <x-splade-input v-model="form.seo_title" name="seo_title" :label="__('seo_title')" /> --}}
                 {{-- SEO Author --}}
-                <x-splade-input v-model="form.seo_author" name="seo_author" :label="__('seo_author')" />
+                {{-- <x-splade-input v-model="form.seo_author" name="seo_author" :label="__('seo_author')" /> --}}
                 {{-- SEO Keywords --}}
-                <x-splade-input v-model="form.seo_keywords" name="seo_keywords" :label="__('seo_keywords')" />
+                {{-- <x-splade-input v-model="form.seo_keywords" name="seo_keywords" :label="__('seo_keywords')" /> --}}
                 {{-- SEO Description --}}
-                <x-splade-input v-model="form.seo_description" name="seo_keywords" :label="__('seo_description')" />
+                {{-- <x-splade-input v-model="form.seo_description" name="seo_keywords" :label="__('seo_description')" /> --}}
                 {{-- Social Title --}}
-                <x-splade-input v-model="form.social_title" name="social_title" :label="__('social_title')" />
+                {{-- <x-splade-input v-model="form.social_title" name="social_title" :label="__('social_title')" /> --}}
                 {{-- Social Description --}}
-                <x-splade-input v-model="form.social_description" name="social_description" :label="__('social_description')" />
+                {{-- <x-splade-input v-model="form.social_description" name="social_description" :label="__('social_description')" /> --}}
                 {{-- Social Image --}}
-                <x-splade-file name="social_image" :label="__('social_image')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" />
+                {{-- <x-splade-file name="social_image" :label="__('social_image')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" /> --}}
 
                 {{-- Logo & Favicon  --}}
                 <h2 class="text-2xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-3xl">logo_and_favicon</h2>
 
                 {{-- Light Logo --}}
-                <x-splade-file name="light_logo" :label="__('light_logo')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" />
+                {{-- <x-splade-file name="light_logo" :label="__('light_logo')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" /> --}}
                 {{-- Dark Logo --}}
-                <x-splade-file name="dark_logo" :label="__('dark_logo')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" />
+                {{-- <x-splade-file name="dark_logo" :label="__('dark_logo')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" /> --}}
                 {{-- Favicon --}}
-                <x-splade-file name="favicon" :label="__('favicon')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" :min-resolution="512 * 512" :max-resolution="512 * 512" />
+                <x-splade-file name="favicon" :label="__('favicon')" filepond preview accept="image/png,jpg,jpeg" max-size="5MB" :min-resolution="250 * 250" :max-resolution="500 * 500" />
 
                 {{-- SMTP --}}
                 <h2 class="text-2xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-3xl">smtp</h2>
@@ -120,12 +120,12 @@
                 <x-splade-input v-model="form.smtp_encryption" name="smtp_encryption" :label="__('smtp_encryption')" />
 
                 {{-- Custom Code --}}
-                <h2 class="text-2xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-3xl">custom_code</h2>
+                {{-- <h2 class="text-2xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-3xl">custom_code</h2> --}}
 
                 {{-- Header Code --}}
-                <x-splade-textarea v-model="form.header_code" name="header_code" :label="__('header_code')" autosize />
+                {{-- <x-splade-textarea v-model="form.header_code" name="header_code" :label="__('header_code')" autosize /> --}}
                 {{-- Footer Code --}}
-                <x-splade-textarea v-model="form.footer_code" name="footer_code" :label="__('footer_code')" autosize />
+                {{-- <x-splade-textarea v-model="form.footer_code" name="footer_code" :label="__('footer_code')" autosize /> --}}
 
                 {{-- Update Button --}}
                 <x-splade-submit :label="__('save')" />

@@ -17,7 +17,7 @@ class Kasir extends Model
         'type_discount',
         'value_discount',
         'min_purchase_amount',
-        'nama_meja',
+        'id_meja',
         'status',
     ];
 
@@ -25,6 +25,11 @@ class Kasir extends Model
     public function menu()
     {
         return $this->belongsTo(Menu::class);
+    }
+
+    public function meja()
+    {
+        return $this->belongsTo(Meja::class,  'id_meja');
     }
 
     public function detail_pesanan()

@@ -11,6 +11,7 @@ use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
+    
     public function __construct()
     {
         $this->middleware('can:create permissions', ['only' => ['create', 'store']]);

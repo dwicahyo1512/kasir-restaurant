@@ -12,6 +12,13 @@ use ProtoneMedia\Splade\Components\Toast;
 
 class Menu extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:create menu', ['only' => ['create', 'store']]);
+        $this->middleware('can:read menu',   ['only' => ['show', 'index']]);
+        $this->middleware('can:update menu',   ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete menu',   ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      */

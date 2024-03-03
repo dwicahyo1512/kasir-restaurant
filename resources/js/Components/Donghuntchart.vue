@@ -16,6 +16,12 @@
     components: {
       apexchart: VueApexCharts,
     },
+    props: {
+        pesanan_hari: {
+            type: Array,
+            required: true,
+        },
+    },
     data() {
       return {
         chartOptions: {

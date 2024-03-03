@@ -15,6 +15,8 @@
                 <x-splade-modal name="refund-info" class="space-x-3">
                     <x-splade-form action="{{ route('discount.store') }}">
                         <div class="max-w-lg mx-auto space-y-4">
+                            <label for="name" class="italic text-red-400">*Percentage adalah diskon dalam bentuk persen*</label><br/>
+                            <label for="name" class="italic text-red-400">*Fixed adalah diskon dalam bentuk Fixed yaitu semua barang akan dikurangi diskon*</label>
                             <x-splade-input name="name" placeholder="Nama Discount" />
                             <x-splade-select name="type" :options="$selectType" placeholder="Select Menu" choices />
                             <x-splade-input name="value" placeholder="jumlah diskon yang diberikan" />

@@ -62,6 +62,50 @@ export default {
         //             });
         //     }, 5000); // Panggil setiap 5 detik (5000 milidetik)
         // },
+        handleClickProses(orderId, orderMeja) {
+            this.isLoading = true;
+            console.log("Order dengan ID", orderId, "telah diklik.");
+            const data = {
+                // proses:,
+                id: orderId,
+                id_meja: orderMeja,
+            };
+            axios
+                .post("/proses", data)
+                .then((response) => {
+                    // Handle response dari controller
+                    // Lakukan tindakan setelah permintaan berhasil
+
+                    this.$splade.visit("/proses");
+                    this.$refs.alert.showAlert(
+                        "success",
+                        response.data.message,
+                        "Update Status Berhasil",
+                        {
+                            iconSize: 35,
+                            iconType: "regular",
+                            position: "top right",
+                        }
+                    );
+                    this.isLoading = false;
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    // Handle kesalahan jika terjadi
+                    console.error(error);
+                    this.isLoading = false;
+                    this.$refs.alert.showAlert(
+                        "error",
+                        "gagal! Silakan coba lagi.",
+                        "Peringatan Status",
+                        {
+                            iconSize: 35,
+                            iconType: "regular",
+                            position: "top right",
+                        }
+                    );
+                });
+        },
         handleClick(orderId) {
             this.isLoading = true;
             console.log("Order dengan ID", orderId, "telah diklik.");
@@ -73,6 +117,7 @@ export default {
                 .then((response) => {
                     // Handle response dari controller
                     // Lakukan tindakan setelah permintaan berhasil
+
                     this.$splade.visit("/proses");
                     this.$refs.alert.showAlert(
                         "success",
@@ -152,7 +197,7 @@ export default {
                                 </svg>
 
                                 <h2 class="pl-1">{{ order.id }}</h2>
-                                <p class="text-end">{{ order.nama_pemesan }}</p>
+                                <p class="text-end">{{ order.nama_pemesan }} - {{ order.meja.nomer_meja }}</p>
                             </div>
                             <div
                                 class="card-actions rounded-2xl text-accent-content justify-between bg-warning px-2 py-0.5"
@@ -206,7 +251,7 @@ export default {
                     >
                         <div
                             class="cursor-pointer"
-                            @click="handleClick(order.id)"
+                            @click="handleClickProses(order.id, order.id_meja)"
                         >
                             <div class="flex">
                                 <svg
@@ -225,7 +270,7 @@ export default {
                                 </svg>
 
                                 <h2 class="pl-1">{{ order.id }}</h2>
-                                <p class="text-end">{{ order.nama_pemesan }}</p>
+                                <p class="text-end">{{ order.nama_pemesan }} - {{ order.meja.nomer_meja }}</p>
                             </div>
                             <div
                                 class="card-actions rounded-2xl text-accent-content justify-between bg-info px-2 py-0.5"
@@ -295,7 +340,7 @@ export default {
                             </svg>
 
                             <h2 class="pl-1">{{ order.id }}</h2>
-                            <p class="text-end">{{ order.nama_pemesan }}</p>
+                            <p class="text-end">{{ order.nama_pemesan }} - {{ order.meja.nomer_meja }}</p>
                         </div>
                         <div
                             class="card-actions rounded-2xl text-accent-content justify-between bg-success px-2 py-0.5"

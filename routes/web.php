@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\ProviderController;
+use App\Http\Controllers\Client;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Kasir;
 use App\Http\Controllers\Pesanan;
 use App\Http\Controllers\ProfileController;
@@ -23,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/now', function () {
     return view('auth.login');
 });
+Route::get('struk/pesanan/{id}', [App\Http\Controllers\Kasir::class, 'struk'])->name('struk.pdf');
 
 Route::middleware('splade')->group(function () {
     // Registers routes to support the interactive components...
@@ -40,22 +43,18 @@ Route::middleware('splade')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
+    Route::get('/pelanggan/cart', [Client::class, 'client'])->name('client.pesanan');
+    Route::post('/client', [Client::class, 'post_client'])->name('client.post');
 
-    Route::get('/cart', function () {
-        return view('food');
-    });
-    Route::get('/market', function () {
-        return view('marketplace');
-    });
 
     Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 
     Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
-    Route::get('pdf', [Kasir::class,'pdf_struk']);
+    Route::get('pdf', [Kasir::class, 'pdf_struk']);
     Route::middleware('auth')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->middleware(['verified'])->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->middleware(['verified'])
+            ->name('dashboard');
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -75,14 +74,10 @@ Route::middleware('splade')->group(function () {
         Route::resource('discount', App\Http\Controllers\discount::class);
         Route::resource('kasir', App\Http\Controllers\Kasir::class);
         Route::resource('pesanan', App\Http\Controllers\Pesanan::class);
-        Route::get('test/pdf', [App\Http\Controllers\Kasir::class, 'struk1'])->name('test1.pdf');
-        Route::get('test/pdf1', [App\Http\Controllers\Kasir::class, 'struk2'])->name('test2.pdf');
+
         Route::get('proses', [Pesanan::class, 'proses'])->name('proses.pesanan');
         Route::post('proses', [Pesanan::class, 'UpdateStatus'])->name('update.pesanan');
+    });
 
-    });
-    Route::get('/testhtml', function () {
-        return view('invoice');
-    });
     require __DIR__ . '/auth.php';
 });

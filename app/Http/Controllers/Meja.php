@@ -10,6 +10,13 @@ use ProtoneMedia\Splade\Facades\Toast;
 
 class Meja extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:create meja', ['only' => ['create', 'store']]);
+        $this->middleware('can:read meja',   ['only' => ['show', 'index']]);
+        $this->middleware('can:update meja',   ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete meja',   ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      */

@@ -1,11 +1,11 @@
 <x-app-layout>
-
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 bg-white border-b border-gray-200">
-
-            </div>
+    <div class="card card-compact bg-base-100 shadow-xl">
+        <div class="card-body h-[800px]">
+            <h2 class="card-title">Struk Pesanan</h2>
+            <iframe
+                src="/struk/pesanan/{{$pesanan->id}}"
+                style="width: 100%; height: 100%"
+            ></iframe>
         </div>
     </div>
-
 </x-app-layout>
