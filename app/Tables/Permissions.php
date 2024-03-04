@@ -67,6 +67,6 @@ class Permissions extends AbstractTable
             ->column('id', __('id'), sortable: true)
             ->column('name', __('name'), sortable: true)
             ->column('action', __('action'))
-            ->paginate();
+            ->paginate(15);
     }
 }

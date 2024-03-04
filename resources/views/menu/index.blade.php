@@ -6,9 +6,9 @@
             </Link>
         </x-breadcrumbs-link>
     </x-breadcrumbs>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex">
+    <div class="py-1">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-base-100 border border-base-300 rounded-lg shadow">
+            <div class="flex mt-3">
                 <Link href="#refund-info"
                     class="px-4 py-2 bg-gray-100 rounded-md text-sm border flex items-center gap-2 text-gray-700">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="24"

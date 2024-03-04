@@ -6,7 +6,7 @@
             </Link>
         </x-breadcrumbs-link>
     </x-breadcrumbs>
-    <div class="max-w-screen-xl p-6 bg-base border border-base-300 rounded-lg shadow">
+    <div class="max-w-screen-xl p-6 bg-base-100 border border-base-300 rounded-lg shadow">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Link href="#refund-info" class="p-4 bg-accent text-white rounded-lg">
@@ -16,9 +16,12 @@
                     <x-splade-form action="{{ route('discount.store') }}">
                         <div class="max-w-lg mx-auto space-y-4">
                             <label for="name" class="italic text-red-400">*Percentage adalah diskon dalam bentuk persen*</label><br/>
-                            <label for="name" class="italic text-red-400">*Fixed adalah diskon dalam bentuk Fixed yaitu semua barang akan dikurangi diskon*</label>
+                            <label for="name" class="italic text-red-400">*Fixed adalah diskon dalam bentuk Fixed yaitu semua barang akan dikurangi diskon*</label><br/>
+                            <label for="name" class="italic text-red-400">*User Biasa Untuk Users Yang tidak login*</label><br/>
+                            <label for="name" class="italic text-red-400">*User Spesial Untuk User yang Sudah Login*</label>
                             <x-splade-input name="name" placeholder="Nama Discount" />
-                            <x-splade-select name="type" :options="$selectType" placeholder="Select Menu" choices />
+                            <x-splade-select name="type" :options="$selectType" placeholder="Select Type Discount" choices />
+                            <x-splade-select name="type_users" :options="$selectTypeUsers" placeholder="Select Type Users Discount" choices />
                             <x-splade-input name="value" placeholder="jumlah diskon yang diberikan" />
                             <x-splade-input name="min_purchase_amount" placeholder="Harga minimum pembelian" />
                             <x-splade-input name="daterange" placeholder="Batas Waktu pembelian" date range />

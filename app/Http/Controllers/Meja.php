@@ -43,7 +43,7 @@ class Meja extends Controller
         // Validasi data yang diterima dari request
         $request->validate([
             'meja' => 'required|string', // Contoh validasi untuk nama meja yang diperlukan dan harus berupa string
-            'kode_meja' => 'required|string', // Contoh validasi untuk nomer meja yang diperlukan dan harus berupa string
+            'kode_meja' => 'required|string|unique:mejas,nomer_meja', // Contoh validasi untuk nomer meja yang diperlukan dan harus berupa string
         ]);
 
         // Buat entri baru dalam database menggunakan model Modelsmeja
@@ -93,7 +93,7 @@ class Meja extends Controller
             'nama_meja' => $request->nama_meja,
             'keterangan_meja' => $request->keterangan_meja,
         ]);
-        Toast::title('meja Data Berhasil Di Edit')->rightTop();
+        Toast::title('Meja Data Berhasil Di Edit')->autoDismiss(3)->rightTop();
 
         return to_route('meja.index');
     }

@@ -12,11 +12,10 @@ class Pesanan extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:create pesanan', ['only' => ['create', 'store']]);
-        $this->middleware('can:read pesanan',   ['only' => ['show', 'index']]);
-        $this->middleware('can:read proses',   ['only' => ['proses', 'index']]);
-        $this->middleware('can:update pesanan',   ['only' => ['edit', 'update']]);
-        $this->middleware('can:delete pesanan',   ['only' => ['destroy']]);
+        $this->middleware('can:create kasir', ['only' => ['create', 'store']]);
+        $this->middleware('can:read kasir',   ['only' => ['show', 'index']]);
+        $this->middleware('can:update kasir',   ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete kasir',   ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

@@ -56,7 +56,8 @@ class Discounts extends AbstractTable
             ->column('Minimal')
             ->column(key: 'start_date', label: 'Tgl Awal Diskon')
             ->column(key: 'end_date', label: 'Tgl Akhir Diskon')
-            ->column('actions');
+            ->column('actions')
+            ->paginate(15);
         // ->searchInput()
         // ->selectFilter()
         // ->withGlobalSearch()

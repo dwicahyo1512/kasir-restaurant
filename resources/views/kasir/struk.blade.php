@@ -58,7 +58,7 @@
     <div class="ticket-wrapper">
         <div class="ticket">
             <div style="text-align: center;">
-                <img src="assets/store.png" alt="Logo" style="width: 50px; height: auto;">
+                <img src="assets/struk_logo.png" alt="Logo" style="width: 50px; height: auto;">
             </div>
             <p class="centered">{{ $nama }}</p>
             <p class="centered">{{ $alamat }}<br>{{ $telepon }}</p>

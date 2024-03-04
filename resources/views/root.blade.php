@@ -7,7 +7,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
-
+    @php
+        $faviconPath = favicon();
+    @endphp
+    <link rel="icon" href="{{ asset($faviconPath) }}" type="image/x-icon">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 

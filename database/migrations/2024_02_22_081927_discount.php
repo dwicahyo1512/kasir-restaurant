@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name'); // Ganti kolom 'discount_name' menjadi 'name'
             $table->enum('type', ['percentage', 'fixed']); // Tipe diskon: persentase atau nilai tetap
+            $table->enum('type_users', ['Biasa', 'Spesial']); // Tipe diskon: persentase atau nilai tetap
             $table->integer('value');
             $table->integer('min_purchase_amount')->nullable();
             $table->date('start_date'); // Tanggal mulai diskon

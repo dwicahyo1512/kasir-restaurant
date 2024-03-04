@@ -76,14 +76,23 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'label dashboard']);
 
         Permission::create(['name' => 'update settings']);
+        Permission::create(['name' => 'read client_users']);
+        Permission::create(['name' => 'read owner']);
+        Permission::create(['name' => 'read chart']);
 
 
         // create roles and assign created permissions
 
         // this can be done as separate statements
 
+        $role = Role::create(['name' => 'client-users']);
+        $role->givePermissionTo([
+            'read client_users',
+        ]);
+
         $role = Role::create(['name' => 'waiter']);
         $role->givePermissionTo([
+            'read chart',
             'label kasir',
             'read proses',
             'create proses',
@@ -97,6 +106,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $role = Role::create(['name' => 'owner']);
         $role->givePermissionTo([
+            'read chart',
+            'read owner',
             'label dashboard',
             'read dashboard',
             'label controller',
@@ -121,6 +132,7 @@ class RolesAndPermissionsSeeder extends Seeder
         // or may be done by chaining
         $role = Role::create(['name' => 'kasir'])
             ->givePermissionTo([
+                'read chart',
                 'label kasir',
                 'create kasir',
                 'read kasir',

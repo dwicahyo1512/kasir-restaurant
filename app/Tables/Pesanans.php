@@ -50,11 +50,12 @@ class Pesanans extends AbstractTable
     {
         $table
             ->withGlobalSearch(columns: ['id'])
-            ->column('id', sortable: true)
+            ->column('id')
             ->column(key: 'nama_pemesan', label: 'Nama Pemesan')
             ->column(key: 'nama_discount', label: 'Nama Discount')
             ->column(key: 'totalpayment', label: 'Total Payment')
             ->column(key: 'totaldiscount', label: 'Discount')
+            ->column(key: 'created_at', label: 'Tanggal Pesan',sortable: true)
             ->column('actions', exportAs: false)
             // ->searchInput()
             ->selectFilter('type_discount', [

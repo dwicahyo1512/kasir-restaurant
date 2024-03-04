@@ -30,7 +30,6 @@ class ProviderController extends Controller
         $user->assignRole($defaultRole);
         Auth::login($user);
 
-
-        return $user;
+        return redirect('/dashboard');
     }
 }

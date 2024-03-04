@@ -19,7 +19,7 @@ class Discount extends Controller
         $this->middleware('can:update discount',   ['only' => ['edit', 'update']]);
         $this->middleware('can:delete discount',   ['only' => ['destroy']]);
     }
-    
+
     public function index()
     {
         //
@@ -27,9 +27,14 @@ class Discount extends Controller
             'percentage' => 'Persentase',
             'fixed' => 'Nilai Tetap',
         ];
+        $selectTypeUsers = [
+            'Biasa' => 'Biasa',
+            'Spesial' => 'Spesial',
+        ];
         return view('discount.index', [
             'discount' => Discounts::class,
             'selectType' => $selectType,
+            'selectTypeUsers' => $selectTypeUsers,
         ]);
     }
 
@@ -50,6 +55,7 @@ class Discount extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'type' => 'required|string|in:percentage,fixed',
+            'type_users' => 'required|string|in:Biasa,Spesial',
             'value' => [
                 'required',
                 'numeric',
@@ -77,6 +83,7 @@ class Discount extends Controller
         ModelsDiscount::create([
             'name' => $request->name,
             'type' => $request->type,
+            'type_users' => $request->type_users,
             'value' => $request->value,
             'min_purchase_amount' => $request->min_purchase_amount,
             'start_date' => $startDate,
@@ -104,6 +111,10 @@ class Discount extends Controller
             'percentage' => 'Persentase',
             'fixed' => 'Nilai Tetap',
         ];
+        $selectTypeUsers = [
+            'Biasa' => 'Biasa',
+            'Spesial' => 'Spesial',
+        ];
         // Konversi nilai diskon dari desimal menjadi number
         $discount->value = floatval($discount->value);
         // Konversi nilai min_purchase_amount dari desimal menjadi number (jika tidak null)
@@ -113,6 +124,7 @@ class Discount extends Controller
         return view('discount.edit', [
             'discount' => $discount,
             'selectType' => $selectType,
+            'selectTypeUsers' => $selectTypeUsers,
         ]);
     }
 

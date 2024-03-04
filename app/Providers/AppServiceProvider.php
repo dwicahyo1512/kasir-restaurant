@@ -21,13 +21,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $smtpConfig = [
-            'driver'    => 'smtp',
-            'host'    => getSetting('smtp_host'),
-            'port'    => getSetting('smtp_port'),
-            'encryption'    => getSetting('smtp_encryption'),
-            'username'    => getSetting('smtp_username'),
-            'password'    => getSetting('smtp_password'),
-            'from'    => [
+            'driver' => 'smtp',
+            'host' => getSetting('smtp_host'),
+            'port' => getSetting('smtp_port'),
+            'encryption' => getSetting('smtp_encryption'),
+            'username' => getSetting('smtp_username'),
+            'password' => getSetting('smtp_password'),
+            'from' => [
                 'address' => getSetting('smtp_sender_email'),
                 'name' => getSetting('smtp_sender_name')
             ]
@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         if (in_array($timezone, timezone_identifiers_list())) {
             Config::set('app.timezone', $timezone);
         } else {
-            Config::set('app.timezone', 'UTC');
+            Config::set('app.timezone', 'Asia/Jakarta');
         }
     }
 }

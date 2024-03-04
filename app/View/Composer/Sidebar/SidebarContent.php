@@ -33,6 +33,19 @@ class SidebarContent
                 ],
             ],
             [
+                'title' => 'Client',
+                'permissions' => 'read client_users',
+                'menus' => [
+                    [
+                        'title' => 'Client Pesan',
+                        'route' => 'client_users.pesanan',
+                        'permissions' => 'read client_users',
+                        'icon' => @svg('heroicon-o-shopping-cart'),
+                        'menus' => [],
+                    ],
+                ],
+            ],
+            [
                 'title' => 'Controller',
                 'permissions' => 'label controller',
                 'menus' => [
@@ -85,7 +98,7 @@ class SidebarContent
                         'title' => 'Proses Pesanan',
                         'route' => 'proses.pesanan',
                         'icon' => @svg('heroicon-o-server-stack'),
-                        'permissions' => 'read proses',
+                        'permissions' => 'read history',
                         'menus' => [],
                     ],
                     [
@@ -93,6 +106,19 @@ class SidebarContent
                         'route' => 'pesanan.index',
                         'icon' => @svg('heroicon-o-arrow-path'),
                         'permissions' => 'read kasir',
+                        'menus' => [],
+                    ],
+                ],
+            ],
+            [
+                'title' => 'laporan',
+                'permissions' => 'read owner',
+                'menus' => [
+                    [
+                        'title' => 'Laporan Pesanan',
+                        'route' => 'laporan.pesanan',
+                        'permissions' => 'read owner',
+                        'icon' => @svg('heroicon-o-document-text'),
                         'menus' => [],
                     ],
                 ],

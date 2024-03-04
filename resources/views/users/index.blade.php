@@ -6,7 +6,7 @@
             </Link>
         </x-breadcrumbs-link>
     </x-breadcrumbs>
-    <div class="max-w-screen-xl p-6 bg-base border border-base-300 rounded-lg shadow">
+    <div class="max-w-screen-xl p-6 bg-base-100 border border-base-300 rounded-lg shadow">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="py-5">

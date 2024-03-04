@@ -3,7 +3,7 @@
     <!-- component -->
     <div class="flex h-screen">
         <!-- Left Pane -->
-        <div class="hidden lg:flex items-center justify-center flex-1 bg-white text-black">
+        <div class="hidden lg:flex items-center justify-center flex-1 bg-white text-black ">
             <div class="max-w-md text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="751.57" height="539.42" viewBox="0 0 751.57 539.42"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -77,10 +77,10 @@
             </div>
         </div>
         <!-- Right Pane -->
-        <div class="w-full bg-gray-100 lg:w-1/2 flex items-center justify-center">
+        <div class="w-full bg-gray-100 lg:w-1/2 flex items-center justify-center dark:bg-black dark:text-white">
             <div class="max-w-md w-full p-6">
-                <h1 class="text-3xl font-semibold mb-6 text-black text-center">Register</h1>
-                <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">Join to Our Community with all time
+                <h1 class="text-3xl font-semibold mb-6 text-black dark:text-white text-center">Register</h1>
+                <h1 class="text-sm font-semibold mb-6 text-gray-500 dark:text-white text-center">Join to Our Community with all time
                     access and free </h1>
                 <div class="mt-4 flex flex-col lg:flex-row items-center justify-between">
                     {{-- <div class="w-full lg:w-1/2 mb-2 lg:mb-0">
@@ -111,37 +111,37 @@
                             </svg> Sign Up with Github </Link>
                     </div>
                 </div>
-                <div class="mt-4 text-sm text-gray-600 text-center">
+                <div class="mt-4 text-sm text-gray-600 dark:text-white text-center">
                     <p>or with email</p>
                 </div>
-                <x-splade-form action="{{ route('register') }}" class="space-y-4">
+                <x-splade-form action="{{ route('register') }}" class="space-y-4 ">
                     <!-- Your form elements go here -->
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-white">Name</label>
                         <x-splade-input id="name" type="text" name="name" required autofocus />
                     </div>
                     <div>
-                        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-white">Username</label>
                         <x-splade-input id="username" type="text" name="username" required autofocus />
                     </div>
                     <div>
-                        <label for="gender" class="block text-sm font-medium text-gray-700">gender</label>
+                        <label for="gender" class="block text-sm font-medium text-gray-700 dark:text-white">gender</label>
                         <x-splade-select name="gender" required>
                             <option value="Male">Laki Laki</option>
                             <option value="Female">Perempuan</option>
                         </x-splade-select>
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-white">Email</label>
                         <x-splade-input id="email" type="email" name="email" required />
                     </div>
                     <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-white">Password</label>
                         <x-splade-input id="password" type="password" name="password" required
                             autocomplete="new-password" />
                     </div>
                     <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-white">Confirm Password</label>
                         <x-splade-input id="password_confirmation" type="password" name="password_confirmation"
                             required />
                     </div>
@@ -151,9 +151,9 @@
                             :label="__('Register')" />
                     </div>
                 </x-splade-form>
-                <div class="mt-4 text-sm text-gray-600 text-center">
+                <div class="mt-4 text-sm text-gray-600 text-center dark:text-white">
                     <p>Already have an account?
-                        <Link href="{{ route('login') }}" class="text-black hover:underline">Login here</Link>
+                        <Link href="{{ route('login') }}" class="text-black hover:underline dark:text-white">Login here</Link>
                     </p>
                 </div>
             </div>

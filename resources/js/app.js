@@ -7,6 +7,7 @@ import Kasir from "./components/KasirPesanan.vue";
 import Plan from "./components/Planselector.vue";
 import Welcome from "./components/NavbarWelcome.vue";
 import client from "./Components/ClientPesan.vue";
+import client_users from "./Components/ClientPesan_users.vue";
 
 // import "ionicons/dist/ionicons.js";
 
@@ -32,6 +33,7 @@ createApp({
     .component("kasir-pesanan" , Kasir)
     .component("welcome" , Welcome)
     .component('Client-Pesanan', client)
+    .component('Client-Pesanan-users', client_users)
     .component('Proses-pesanan', defineAsyncComponent(() => import("./Components/Proses.vue")))
     .component('Lingkar-chart', defineAsyncComponent(() => import("./Components/Donghuntchart.vue")))
     .component('Line-chart', defineAsyncComponent(() => import("./Components/ChartLine.vue")))

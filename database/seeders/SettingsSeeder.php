@@ -21,7 +21,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'key' => 'website_url',
-                'value' => 'https://name.com',
+                'value' => 'http://localhost:8000',
             ],
             [
                 'key' => 'website_email_address',
@@ -41,7 +41,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'key' => 'timezone',
-                'value' => 'UTC',
+                'value' => 'Asia/Jakarta',
             ],
             [
                 'key' => 'date_format',

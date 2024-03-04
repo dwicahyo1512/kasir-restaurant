@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\Client;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Kasir;
+use App\Http\Controllers\Laporan;
 use App\Http\Controllers\Pesanan;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -75,6 +76,10 @@ Route::middleware('splade')->group(function () {
         Route::resource('kasir', App\Http\Controllers\Kasir::class);
         Route::resource('pesanan', App\Http\Controllers\Pesanan::class);
 
+        Route::get('client_users', [Client::class, 'client_users'])->name('client_users.pesanan');
+        Route::post('client_users', [Client::class, 'store_users'])->name('client_users.store');
+        Route::get('laporan', [Laporan::class, 'laporan'])->name('laporan.pesanan');
+        Route::post('laporan', [Laporan::class, 'store'])->name('laporan.store');
         Route::get('proses', [Pesanan::class, 'proses'])->name('proses.pesanan');
         Route::post('proses', [Pesanan::class, 'UpdateStatus'])->name('update.pesanan');
     });

@@ -63,7 +63,8 @@ class Menus extends AbstractTable
             ->column('harga_menu')
             ->column('status')
             ->column('keterangan_menu')
-            ->column('actions');
+            ->column('actions')
+            ->paginate(15);
         // ->searchInput()
         // ->selectFilter()
         // ->withGlobalSearch()

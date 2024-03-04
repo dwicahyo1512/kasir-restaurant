@@ -465,7 +465,7 @@ export default {
             };
 
             axios
-                .post("/client", paymentData)
+                .post("/client_users", paymentData)
                 .then((response) => {
                     this.$refs.alert.showAlert(
                         "success",
