@@ -39,7 +39,7 @@ class Kasir extends Controller
         $pesanan = ModelsKasir::with('meja')->latest()->take(10)->get()->toArray();
         return view('kasir.index', compact('menus', 'discounts', 'categories', 'pesanan', 'meja'));
     }
-  
+
 
     /**
      * Show the form for creating a new resource.
@@ -144,13 +144,6 @@ class Kasir extends Controller
         $nomer_meja = $meja->nomer_meja;
         $alamat = 'Wonorejo, Pakijangan, Pasuruan';
         $telepon = '083851574470';
-        $data = [
-            [
-                'quantity' => 1,
-                'description' => '1 Year Subscription',
-                'price' => '129.00'
-            ]
-        ];
         $pdf = Pdf::loadView('kasir.struk', ['pesanan' => $pesanan, 'nama' => $name, 'alamat' => $alamat, 'telepon' => $telepon, 'nomer_meja' => $nomer_meja, 'kasir' => $kasir])->setPaper(array(0, 0, 180, 450), 'potrait');
 
         // return $pdf->download();

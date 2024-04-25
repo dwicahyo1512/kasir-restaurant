@@ -35,17 +35,25 @@ export default {
     },
     setup() {
         const controlledSwiper = ref(null);
+        const controlled2Swiper = ref(null);
+        const controlled3Swiper = ref(null);
         const setControlledSwiper = (swiper) => {
             controlledSwiper.value = swiper;
         };
         const set2ControlledSwiper = (swiper) => {
-            controlledSwiper.value = swiper;
+            controlled2Swiper.value = swiper;
+        };
+        const set3ControlledSwiper = (swiper) => {
+            controlled3Swiper.value = swiper;
         };
         return {
             Controller,
             controlledSwiper,
+            controlled2Swiper,
+            controlled3Swiper,
             setControlledSwiper,
             set2ControlledSwiper,
+            set3ControlledSwiper,
         };
     },
     methods: {
@@ -167,6 +175,7 @@ export default {
             <div class="z-0">
                 <swiper
                     :modules="[Controller]"
+                    @swiper="setControlledSwiper"
                     :controller="{ control: controlledSwiper }"
                     :slides-per-view="3"
                     :space-between="20"
@@ -240,7 +249,8 @@ export default {
             <div class="z-0">
                 <swiper
                     :modules="[Controller]"
-                    @swiper="setControlledSwiper"
+                    @swiper="set2ControlledSwiper"
+                    :controller="{ control: controlled2Swiper }"
                     :slides-per-view="3"
                     :space-between="20"
                 >
@@ -314,7 +324,8 @@ export default {
             <div class="z-0">
                 <swiper
                     :modules="[Controller]"
-                    @swiper="set2ControlledSwiper"
+                    @swiper="set3ControlledSwiper"
+                    :controller="{ control: controlled3Swiper }"
                     :slides-per-view="3"
                     :space-between="20"
                 >
