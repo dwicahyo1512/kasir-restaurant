@@ -1,8 +1,8 @@
 # Kasir Restaurant With Splade
 ## Screenshots
 
-![App Screenshot](https://github.com/dwicahyo1512/Sistem-Tambang/blob/main/dokumen/Cover.png)
-![App Screenshot1](https://github.com/dwicahyo1512/Sistem-Tambang/blob/main/dokumen/Cover-1.png)
+![App Screenshot](https://github.com/dwicahyo1512/kasir-restaurant/blob/daisy-ui/dokumen/Cover.png)
+![App Screenshot1](https://github.com/dwicahyo1512/kasir-restaurant/blob/daisy-ui/dokumen/Cover-1.png)
 
 
 ## Installation
