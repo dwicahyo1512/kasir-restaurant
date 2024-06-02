@@ -16,6 +16,8 @@ Install my-project
 
   composer Install
 
+  mpm Install
+
   cp .env.example .env
 ```
 
