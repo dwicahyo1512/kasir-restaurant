@@ -1,4 +1,4 @@
-# Kasir Restaurant With Splade
+# Kasir Restaurant With Splade and daisy-ui
 ## Screenshots
 
 ![App Screenshot](https://github.com/dwicahyo1512/kasir-restaurant/blob/daisy-ui/dokumen/Cover.png)
