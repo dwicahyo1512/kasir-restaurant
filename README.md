@@ -1,4 +1,4 @@
-# Sistem Tambang
+# Kasir Restaurant With Splade
 ## Screenshots
 
 ![App Screenshot](https://github.com/dwicahyo1512/Sistem-Tambang/blob/main/dokumen/Cover.png)
