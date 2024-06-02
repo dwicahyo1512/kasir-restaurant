@@ -24,7 +24,7 @@
 
                         'timezone' => getSetting('timezone'),
 
-                        {{-- SEO Configuration  --}}
+                   
                         'seo_title' => getSetting('seo_title'),
                         'seo_author' => getSetting('seo_author'),
                         'seo_keywords' => getSetting('seo_keywords'),

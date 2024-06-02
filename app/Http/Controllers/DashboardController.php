@@ -40,6 +40,7 @@ class DashboardController extends Controller
         $total_kasir = Kasir::count();
         $total_menu = Menu::count();
         $total_user = User::count();
+        
         return view('dashboard', compact('totalPesananPerBulan', 'totalBulanIni', 'total_kasir', 'total_menu', 'total_user'));
     }
 }

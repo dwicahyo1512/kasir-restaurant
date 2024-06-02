@@ -38,8 +38,7 @@ class Laporan extends Controller
             $totalPenjualan = 0; // Atau berikan nilai default lainnya
         }
         $name = getSetting('website_name');
-        $time = config('app.timezone');
-        // dd($time);
+        // dd($tanggalMulai);
         // Buat tampilan HTML untuk laporan
         $html = view('laporan.pdf', compact('laporan', 'name', 'tanggalMulai', 'tanggalAkhir', 'totalPenjualan'))->render();
 
